@@ -33,10 +33,10 @@ const courses = [
 
 var container = [];
 
+//Separate unit and id by odd or even numbers
 courses.map((courseElement, courseIndex) => {
     var newSubject = courseElement.subjects.map((subElement, subIndex) => {
-        let newUnit;
-        let newId;
+        let newUnit, newId;
 
         if (courseIndex % 2 == 0)
             if (subIndex % 2 == 0) {
@@ -78,6 +78,7 @@ courses.map((courseElement, courseIndex) => {
     container.push({name: courseElement.title, subjects: newSubject});
 });
 
+//The real output
 container.map((newCourseElement) => {
     return newCourseElement.subjects;
 });
