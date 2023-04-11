@@ -1,0 +1,83 @@
+const courses = [
+    {
+        title: "Bachelor of Law",
+        subjects: [
+            {
+                name: "Criminal Law",
+                units: 3,
+                id: 1001
+            },
+            {
+                name: "Political Science",
+                units: 3,
+                id: 1002
+            }
+        ]
+    },
+    {
+        title: "Bachelor of Science in Info. Tech",
+        subjects: [
+            {
+                name: "Computer Programming",
+                units: 5,
+                id: 1003
+            },
+            {
+                name: "System Analysis and Design",
+                units: 5,
+                id: 1004
+            }
+        ]
+    }
+];
+
+var container = [];
+
+courses.map((courseElement, courseIndex) => {
+    var newSubject = courseElement.subjects.map((subElement, subIndex) => {
+        let newUnit;
+        let newId;
+
+        if (courseIndex % 2 == 0)
+            if (subIndex % 2 == 0) {
+
+                newUnit = {
+                    name: subElement.name,
+                    unit: subElement.units
+                };
+
+                return newUnit;
+            }
+            else {
+                newId = {
+                    name: subElement.name, 
+                    id: subElement.id
+                }
+                
+                return newId;
+            }
+        else
+            if (subIndex % 2 == 0) {
+                newId = {
+                    name: subElement.name, 
+                    id: subElement.id
+                }
+
+                return newId;
+            }
+            else {
+                newUnit = {
+                    name: subElement.name,
+                    unit: subElement.units
+                };
+
+                return newUnit;
+            }
+    });
+
+    container.push({name: courseElement.title, subjects: newSubject});
+});
+
+container.map((newCourseElement) => {
+    return newCourseElement.subjects;
+});
